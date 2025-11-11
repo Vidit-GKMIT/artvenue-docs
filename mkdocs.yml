@@ -1,0 +1,21 @@
+site_name: ARTVENUE
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Functional Document: functional_document.md
+  - Usecase document: usecase_document.md
+  - Data Flow Diagram: data_flow_diagram.md
+  - ER Diagram: erd.md
+
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
