@@ -501,7 +501,7 @@
 
 <h2 id="entity-relationship-diagram">Entity Relationship Diagram</h2>
 <pre class="mermaid"><code>
-erDiagram
+    erDiagram
 
     roles {
         int id PK
@@ -542,8 +542,8 @@ erDiagram
 
     artist_categories {
         int id PK
-        int artist_id FK "UNIQUE NOT NULL"
-        int category_id FK "UNIQUE NOT NULL"
+        int artist_id "UNIQUE NOT NULL"
+        int category_id "UNIQUE NOT NULL"
         timestamp created_at "DEFAULT CURRENT_TIMESTAMP"
         timestamp updated_at "DEFAULT CURRENT_TIMESTAMP"
         timestamp deleted_at "NULL"
@@ -551,8 +551,8 @@ erDiagram
 
     event_categories {
         int id PK
-        int event_id FK "UNIQUE NOT NULL"
-        int category_id FK "UNIQUE NOT NULL"
+        int event_id "UNIQUE NOT NULL"
+        int category_id "UNIQUE NOT NULL"
         timestamp created_at "DEFAULT CURRENT_TIMESTAMP"
         timestamp updated_at "DEFAULT CURRENT_TIMESTAMP"
         timestamp deleted_at "NULL"
@@ -576,8 +576,9 @@ erDiagram
         int payout "NOT NULL"
         int event_categories FK
         timestamp start_date_time "NOT NULL"
+        timestamp end_date_time "NOT NULL"
         int capacity "NOT NULL"
-        date created_at "DEFAULT CURRENT_TIMESTAMP"
+        timestamp created_at "DEFAULT CURRENT_TIMESTAMP"
         timestamp updated_at "DEFAULT CURRENT_TIMESTAMP"
         timestamp deleted_at "NULL"
     }
@@ -595,15 +596,19 @@ erDiagram
     roles ||--o{ users : "assigned to"
 
     venues ||--o{ events : "hosts"
-    artists }o--o{ opt_ins : "applies to"
-    events }o--o{ opt_ins : "has applicants"
-    categories }o--o{ "artist_categories" : "has"
-    events }o--o{ "event_categories" : "has"
-    categories }o--o{ event_categories : "has many"
+    artists ||--o{ opt_ins : "applies to"
+    events ||--o{ opt_ins : "has applicants"
+    categories ||--o{ "artist_categories" : "has"
+    events ||--o{ "event_categories" : "has"
+    categories ||--o{ event_categories : "has"
     artists ||--o{ artist_categories : "has"
 
     users ||--o{ artists : "can be"
     users ||--|| venues : "owns"
+
+
+
+
 
 </code></pre>
 
