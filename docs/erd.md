@@ -77,6 +77,7 @@
         int event_categories FK
         timestamp start_date_time "NOT NULL"
         timestamp end_date_time "NOT NULL"
+        bool is_active "DEFAULT TRUE"
         int capacity "NOT NULL"
         timestamp created_at "DEFAULT CURRENT_TIMESTAMP"
         timestamp updated_at "DEFAULT CURRENT_TIMESTAMP"
