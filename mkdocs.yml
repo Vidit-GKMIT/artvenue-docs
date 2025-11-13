@@ -15,6 +15,7 @@ nav:
   - Auth Diagrams: auth.md
   - AWS Diagram: aws_diagram.md
   - Tech Stack: tech_stack.md
+  - Test Cases: testcases.md
 
 markdown_extensions:
   - pymdownx.superfences:
