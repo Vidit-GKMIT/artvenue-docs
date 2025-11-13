@@ -39,8 +39,6 @@ Tests will be executed in the following environment:
 
 ## 5. User Register
 
-6.1 Register – Common Test Cases
-
 | Test Case ID | Scenario | Input | Expected Output |
 |--------------|----------|--------|-----------------|
 | TC-01 | Register with valid artist data | name, email, password, role=artist, age and category | User created, directed to artist page |
