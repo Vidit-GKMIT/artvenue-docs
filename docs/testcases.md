@@ -29,27 +29,15 @@ The objective of the Jest Test Plan is to ensure the correctness, reliability of
 - Duplicate opt-ins
 - Unauthorized requests
 
-## 4. Test Coverage Goals
 
-| Module | Coverage Target |
-|--------|------------------|
-| User Service | 90% |
-| Auth Controller (Register/Login) | 85% |
-| OTP Service | 90% |
-| Artist & Venue Services | 80% |
-| Opt-In Workflow | 85% |
-| React Components | 70–80% |
-| Overall Project | 85% coverage |
-
-
-## 5. Test Environment
+## 4. Test Environment
 
 Tests will be executed in the following environment:
 
 - **Frontend:** Jest
 - **Backend:** Jest  
 
-## 6. User Register
+## 5. User Register
 
 6.1 Register – Common Test Cases
 
@@ -63,7 +51,7 @@ Tests will be executed in the following environment:
 | TC-06 | Duplicate username | username | Username already registered |
 | TC-07 | All input correct, invalid or expired OTP | OTP  |  Can't register  |
 
-## 7. User Login 
+## 6. User Login 
 
 | Test Case ID | Scenario | Input | Expected Output |
 |--------------|----------|--------|-----------------|
@@ -72,7 +60,7 @@ Tests will be executed in the following environment:
 | TC-03 | User not registered | unknown email | User not found |
 | TC-04 | Missing credentials | empty email/password | Email & password required |
 
-## 8. OTP Generation & Validation – Test Cases
+## 7. OTP Generation & Validation – Test Cases
 
 | Test Case ID | Scenario | Input | Expected Output |
 |--------------|----------|--------|-----------------|
