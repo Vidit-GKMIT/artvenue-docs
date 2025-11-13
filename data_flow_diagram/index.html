@@ -260,6 +260,63 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../auth/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Auth Diagrams
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../aws_diagram/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AWS Diagram
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../tech_stack/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tech Stack
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -459,6 +516,72 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Auth Diagrams
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_diagram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS Diagram
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tech_stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tech Stack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -539,23 +662,33 @@ S --&gt;|Confirmation Emails| V
 <pre class="mermaid"><code>flowchart TD
 
 %% ==== EXTERNAL ENTITIES ====
-A[Artist] --&gt;|Sign up / Login | B1[Authentication &amp; Authorization Module]
-V[Venue Owner] --&gt;|Sign up / Login | B1
+A[Artist] --&gt;|Sign Up / Login| B1[Authentication &amp; Authorization Module]
+V[Venue Owner] --&gt;|Sign Up / Login| B1
+
+%% ==== SIGN UP FLOW ====
+B1 --&gt;|Sign Up| S1[Enter Details]
+S1 --&gt; S5{OTP Valid?}
+S5 --&gt;|Check Redis for OTP| R[(Redis - OTP Store)]
+S5 -- Yes --&gt; GA[Grant Access]
+S5 -- No --&gt; AD[Access Denied]
+
+%% ==== LOGIN FLOW ====
+B1 --&gt;|Login| L1[Enter Credentials]
+L1 --&gt; L2{Valid Credentials?}
+L2 -- Yes --&gt; GA
+L2 -- No --&gt; AD
 
 %% ==== MAIN PROCESSES ====
-B1 --&gt;|Verified Access| B2[Artist]
-B1 --&gt;|Verified Access| B3[Venue Owner]
+GA --&gt;|Verified Access| B2[Artist]
+GA --&gt;|Verified Access| B3[Venue Owner]
 
-B2 --&gt;|Create / Update Profile| D[(PostgreSQL Database)]
-B2 --&gt;| Apply for events | D[(PostgreSQL Database)]
-B3 --&gt;|Add and update events| D
-
-B3 --&gt;|Create Event| D[(PostgreSQL Database)]
+B2 --&gt;|Apply for Events| D[(PostgreSQL Database)]
+B3 --&gt;|Add / Update Events| D
+B3 --&gt;|Create Venue| D
 
 %% ==== OUTPUT FLOWS ====
 D --&gt;|Venues / Events List| B2
-D --&gt;|Artist Profiles | B3
-
+D --&gt;|Artist Profiles| B3
 </code></pre>
 
 
