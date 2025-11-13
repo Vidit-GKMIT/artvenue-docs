@@ -25,7 +25,6 @@
     artists {
         int id PK
         int user_id FK
-        int category_id FK
         int age "NOT NULL"
         timestamptime created_at "DEFAULT CURRENT_TIMESTAMP"
         timestamptime updated_at "DEFAULT CURRENT_TIMESTAMP"
@@ -42,8 +41,8 @@
 
     artist_categories {
         int id PK
-        int artist_id "UNIQUE NOT NULL"
-        int category_id "UNIQUE NOT NULL"
+        int artist_id FK "UNIQUE NOT NULL"
+        int category_id FK "UNIQUE NOT NULL"
         timestamp created_at "DEFAULT CURRENT_TIMESTAMP"
         timestamp updated_at "DEFAULT CURRENT_TIMESTAMP"
         timestamp deleted_at "NULL"
@@ -51,8 +50,8 @@
 
     event_categories {
         int id PK
-        int event_id "UNIQUE NOT NULL"
-        int category_id "UNIQUE NOT NULL"
+        int event_id FK "UNIQUE NOT NULL"
+        int category_id FK "UNIQUE NOT NULL"
         timestamp created_at "DEFAULT CURRENT_TIMESTAMP"
         timestamp updated_at "DEFAULT CURRENT_TIMESTAMP"
         timestamp deleted_at "NULL"
@@ -61,7 +60,7 @@
     venues {
         int id PK
         int owner_id FK
-        enum category_id "Hotel, Bar, Restaurant, Club"
+        enum category "Hotel, Bar, Restaurant, Club"
         varchar(30) name "NOT NULL"
         text address "NOT NULL"
         timestamp created_at "DEFAULT CURRENT_TIMESTAMP"
@@ -74,10 +73,8 @@
         int venue_id FK 
         varchar(30) event_name "NOT NULL"
         int payout "NOT NULL"
-        int event_categories FK
         timestamp start_date_time "NOT NULL"
         timestamp end_date_time "NOT NULL"
-        bool is_active "DEFAULT TRUE"
         int capacity "NOT NULL"
         timestamp created_at "DEFAULT CURRENT_TIMESTAMP"
         timestamp updated_at "DEFAULT CURRENT_TIMESTAMP"
@@ -105,11 +102,7 @@
     artists ||--o{ artist_categories : "has"
 
     users ||--o{ artists : "can be"
-    users ||--|| venues : "owns"
-
-
-   
-
+    users ||--|| venues : "owns"   
    
 
 ```

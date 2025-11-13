@@ -14,11 +14,11 @@ The goal is to simplify the discovery, communication process between both commun
 
 ## Tech Stack
 
-1. **Frontend:** - React.js (Vite)
-2. **Banckend:** - Node.js and Express
+1. **Frontend:** - React.js (Vite) - Version 19.2
+2. **Banckend:** - Node.js and Express - Node Version 24.10 and Express Version 5.1
 3. **Database:** - PostgreSQL
 4. **ORM** - Prisma
-5. **Caching** - Redis for OTP storage
+5. **Caching** - Redis for OTP storage - Version 8.2
 
 ## Future Scope
 

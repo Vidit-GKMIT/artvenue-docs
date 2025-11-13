@@ -12,6 +12,9 @@ nav:
   - Usecase document: usecase_document.md
   - Data Flow Diagram: data_flow_diagram.md
   - ER Diagram: erd.md
+  - Auth Diagrams: auth.md
+  - AWS Diagram: aws_diagram.md
+  - Tech Stack: tech_stack.md
 
 markdown_extensions:
   - pymdownx.superfences:
