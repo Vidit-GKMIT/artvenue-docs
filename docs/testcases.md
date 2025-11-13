@@ -2,15 +2,16 @@
 
 ## 1. Introduction
 
-ArtVenue is a platform that connects **artists** with **venue owners**.
+ArtVenue is a platform that connects **artists** with **venue owners**.  
 
-- User Registration  
-- Login  
-- OTP Generation & Verification  
-- Venue & Event Functionality  
-- Artist Opt-In Workflow  
-- Email Notification Service  
-- Unit Tests for Individual Service Functions  
+## 2.Objective
+
+The objective of this test plan is to ensure the ArtVenue platform meets all functional, non-functional, usability, and security requirements. The testing will validate:
+
+- Smooth login/register of artists and venue owners.
+- Venue listing, event creation, and artist opt-in workflows.
+- Correct email notification system.
+- Proper access control based on user roles (Artist / Venue Owner).
 
 ## 2. Scope of Testing
 
@@ -23,12 +24,19 @@ The objective of the Jest Test Plan is to ensure the correctness, reliability of
 - Email notification system
 - Backend service logic
 
+### 2.1 Scope of Unit Testing
+
+- Unit tests will cover:
+- Utility functions (validators, formatters).
+- Controllers (signup, login, venue creation, event creation).
+- OTP generator (must generate 6-digit numeric only).
+- Middleware (authentication, role-based access control).
+
 ## 3. Negative and Edge-Case Testing
 - Missing fields
 - Invalid OTP
 - Duplicate opt-ins
 - Unauthorized requests
-
 
 ## 4. Test Environment
 
