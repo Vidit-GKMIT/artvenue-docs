@@ -8,8 +8,7 @@ Art Venue is an online platform that bridges the gap between artists and venue o
 **Venue Listings:** Venue owners can list their venue and it's details.  
 **Collaboration System:** Artists can apply to perform at events.  
 **RBAC:** Role based access system for artist and venue owners.  
-**Creation of PWA:** Creation of progressive web apps
-**Redis:** Using redis for caching of Email OTP. OTP is used for secured login in app using email.
+**Creation of PWA:** Creation of progressive web apps.
 
 ### Modules
 

@@ -13,7 +13,7 @@ The objective of this test plan is to ensure the ArtVenue platform meets all fun
 - Correct email notification system.
 - Proper access control based on user roles (Artist / Venue Owner).
 
-## 2. Scope of Testing
+## 3. Scope of Testing
 
 The objective of the Jest Test Plan is to ensure the correctness, reliability of the ArtVenue platform by thoroughly testing:
 
@@ -24,7 +24,7 @@ The objective of the Jest Test Plan is to ensure the correctness, reliability of
 - Email notification system
 - Backend service logic
 
-### 2.1 Scope of Unit Testing
+### 3.1 Scope of Unit Testing
 
 - Unit tests will cover:
 - Utility functions (validators, formatters).
@@ -32,20 +32,20 @@ The objective of the Jest Test Plan is to ensure the correctness, reliability of
 - OTP generator (must generate 6-digit numeric only).
 - Middleware (authentication, role-based access control).
 
-## 3. Negative and Edge-Case Testing
+## 4. Negative and Edge-Case Testing
 - Missing fields
 - Invalid OTP
 - Duplicate opt-ins
 - Unauthorized requests
 
-## 4. Test Environment
+## 5. Test Environment
 
 Tests will be executed in the following environment:
 
 - **Frontend:** Jest
 - **Backend:** Jest  
 
-## 5. User Register
+## 6. User Register
 
 | Test Case ID | Scenario | Input | Expected Output |
 |--------------|----------|--------|-----------------|
@@ -57,16 +57,16 @@ Tests will be executed in the following environment:
 | TC-06 | Duplicate username | username | Username already registered |
 | TC-07 | All input correct, invalid or expired OTP | OTP  |  Can't register  |
 
-## 6. User Login 
+## 7. User Login 
 
 | Test Case ID | Scenario | Input | Expected Output |
 |--------------|----------|--------|-----------------|
 | TC-01 | Login success | correct email/password | Redirect to profile page |
-| TC-02 | Wrong password | existing email + wrong password or wrong email + existing email | Incorrect password |
+| TC-02 | Wrong credentials | existing email + wrong password or wrong email + existing email | Incorrect password |
 | TC-03 | User not registered | unknown email | User not found |
 | TC-04 | Missing credentials | empty email/password | Email & password required |
 
-## 7. OTP Generation & Validation – Test Cases
+## 8. OTP Generation & Validation – Test Cases
 
 | Test Case ID | Scenario | Input | Expected Output |
 |--------------|----------|--------|-----------------|
